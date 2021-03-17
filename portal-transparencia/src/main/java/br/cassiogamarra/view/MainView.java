@@ -13,7 +13,13 @@ public class MainView {
         ControllerConexao controllerConexao = new ControllerConexao();
 
         if(controllerConexao.connect()) {
-            controllerArquivo.getDataFromFile();
+            String nomeArquivo = JOptionPane.showInputDialog("Digite o nome do arquivo!");
+            if(nomeArquivo.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nome inválido!", "ERRO!", JOptionPane.WARNING_MESSAGE);
+            } else {
+                nomeArquivo.replaceAll(".csv","");
+                controllerArquivo.getDataFromFile(nomeArquivo+".csv");
+            }
         } else if(!controllerConexao.connect()){
             JOptionPane.showMessageDialog(null, "Não foi possível conectar!", "ERRO!", JOptionPane.WARNING_MESSAGE);
             System.exit(1);

@@ -22,6 +22,7 @@ public class ModelRegistro {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println(query);
         }
         return false;
     }
@@ -30,7 +31,7 @@ public class ModelRegistro {
     public ResultSet sqlSelect(String query) {
         try {
             stmt = conn.connectDatabase().createStatement();
-            stmt.executeQuery(query);
+            rs = stmt.executeQuery(query);
             return rs;
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());

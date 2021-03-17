@@ -4,11 +4,22 @@ import br.cassiogamarra.model.ModelPessoa;
 import br.cassiogamarra.model.ModelSQL;
 import br.cassiogamarra.model.ModelRegistro;
 
+import java.sql.SQLException;
+
 public class ControllerRegistro {
     public ControllerRegistro() {}
 
     ModelRegistro register = new ModelRegistro();
     ModelSQL queryModel = new ModelSQL();
+
+    public boolean verificarDuplicidade(String cpf) {
+        try {
+            return register.sqlSelect(queryModel.querySearch(cpf)).next();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return true;
+    }
 
     public boolean registrarPessoa(ModelPessoa p) {
         return register.sqlExecute(queryModel.queryInsert(p));
