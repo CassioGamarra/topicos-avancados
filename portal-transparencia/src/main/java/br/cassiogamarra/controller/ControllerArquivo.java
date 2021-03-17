@@ -25,18 +25,18 @@ public class ControllerArquivo {
             AtomicBoolean sucesso = new AtomicBoolean(false);
             AtomicBoolean hasRegister = new AtomicBoolean(false);
             AtomicInteger counter = new AtomicInteger(0);
-            String regex = "\"|'";
+            String regex = "\"";
             br.lines()
                     .skip(1)
                     .map(linhas -> linhas.split(";"))
                     .forEach(
                           (item) -> {
                               p.setCpf(item[0].replaceAll(regex, ""));
-                              p.setNome(item[1].replaceAll(regex, ""));
+                              p.setNome(item[1].replaceAll(regex, "").replace("'", "\\'"));
                               p.setSigla(item[2].replaceAll(regex, ""));
-                              p.setDescricaoFuncao(item[3].replaceAll(regex, ""));
-                              p.setNivelFuncao(item[4].replaceAll(regex, ""));
-                              p.setNomeOrgao(item[5].replaceAll(regex, ""));
+                              p.setDescricaoFuncao(item[3].replaceAll(regex, "").replace("'", "\\'"));
+                              p.setNivelFuncao(item[4].replaceAll(regex, "").replace("'", "\\'"));
+                              p.setNomeOrgao(item[5].replaceAll(regex, "").replace("'", "\\'"));
                               try{
                                   p.setDtIniExercicio(!item[6].contains("Não") ? dateFormat.format(fromModel.parse(item[6].replaceAll("\"", ""))) : "");
                                   p.setDtFimExercicio(!item[7].contains("Não") ? dateFormat.format(fromModel.parse(item[7].replaceAll("\"", ""))) : "");
