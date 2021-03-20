@@ -10,7 +10,7 @@ public class ControllerConexao {
     public boolean connect() {
         connectionFactory.setAddress("localhost");
         connectionFactory.setPort("3306");
-        connectionFactory.setDbname("DBTOPICOS");
+        connectionFactory.setDbname("dbportaltransparencia");
         connectionFactory.setUser("root");
         connectionFactory.setPassword("123123");
         connectionFactory.connectDatabase();

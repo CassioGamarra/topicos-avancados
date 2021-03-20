@@ -14,7 +14,6 @@ public class ModelSQL {
         sql += p.getDtFimExercicio().length() > 0 ? ",'"+p.getDtFimExercicio()+"'" : ", NULL";
         sql += p.getDtFimCarencia().length() > 0 ?  ",'"+p.getDtFimCarencia()+"'" : ", NULL";
         sql += ")";
-        System.out.println(sql);
         return sql;
     }
 

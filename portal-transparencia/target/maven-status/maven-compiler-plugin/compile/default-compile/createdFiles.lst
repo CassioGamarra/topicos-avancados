@@ -1,0 +1,8 @@
+br/cassiogamarra/controller/ControllerArquivo.class
+br/cassiogamarra/controller/ControllerConexao.class
+br/cassiogamarra/model/ModelSQL.class
+br/cassiogamarra/model/ModelRegistro.class
+br/cassiogamarra/controller/ControllerRegistro.class
+br/cassiogamarra/view/MainView.class
+br/cassiogamarra/connection/ConnectionFactory.class
+br/cassiogamarra/model/ModelPessoa.class
